@@ -31,6 +31,8 @@ public:
 	void setPhonesPurchased(int);
 	void setCost(double);
 	void setPhoneObj(CellPhone[]);
+
+	void calculateCost();
 };
 
 #endif // !CUSTOMER_H

@@ -73,3 +73,9 @@ void Customer::setPhoneObj(CellPhone array[])
 		phoneObj[i] = array[i];
 	}
 }
+
+void Customer::calculateCost()
+{
+	double costTaxless = phonesPurchased * PHONE_COST;
+	cost = 
+}

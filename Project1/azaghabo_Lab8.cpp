@@ -7,8 +7,9 @@
 #include<fstream>
 #include<vector>
 #include<stack>
-#include<queue>
+#include<deque>
 #include"Cellphone.h"
+#include"Customer.h"
 using namespace std;
 
 //Constants
@@ -22,6 +23,10 @@ void displayTitle();
 int main()
 {
 	displayTitle();
+
+	stack<CellPhone> cellphoneInventory;
+	deque<Customer> customerQueue;
+
 
 	cout << "\n" << endl;
 	system("pause");
