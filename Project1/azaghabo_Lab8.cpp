@@ -13,23 +13,70 @@
 using namespace std;
 
 //Constants
-const string FILE_PATH = "C:\\Users\\zagha\\source\\repos\\AbdalaZaghabc\\Lab - 8 - Stacks - and -Queues\\Project1\\cellphone.txt";
+const string FILE_PATH = "cellphone.txt";
+const int FILE_SIZE = 22;
+
+const int MENU_ONE = 1, MENU_TWO = 2, MENU_THREE = 3;
 
 //Structures
 
 //Function Prototypes
 void displayTitle();
 void createStack(stack<CellPhone, vector<CellPhone>>&);
+void buyPhone(stack <CellPhone , vector<CellPhone>>&);
 
 //Beginning of the program
 int main()
 {
+	int menuOption;
+
 	displayTitle();
 
-	stack<CellPhone> cellPhoneInventory;
+	stack<CellPhone, vector<CellPhone>> cellPhoneInventory;
 	deque<Customer> customerQueue;
 
 	createStack(cellPhoneInventory);
+
+	do
+	{
+		cout << "\n" << endl;
+		cout << MENU_ONE << ". Buy Phone" << endl;
+		cout << MENU_TWO << ". Customer Checkout" << endl;
+		cout << MENU_THREE << ". Quit" << endl << endl;
+		cout << "Enter the menu choice: ";
+		cin >> menuOption;
+
+		switch (menuOption)
+		{
+		case MENU_ONE:
+		{
+			if (cellPhoneInventory.empty())
+			{
+				cout << "Sorry! This stack is empty." << endl;
+			}
+			else
+			{
+				buyPhone(cellPhoneInventory);
+			}
+
+			break;
+		}
+		case MENU_TWO:
+		{
+
+			break;
+		}
+		case MENU_THREE:
+		{
+
+			break;
+		}
+
+		default:
+			cout << "Invalid choice! Try again:" << endl;
+			break;
+		}
+	} while (menuOption != MENU_THREE);
 
 	cout << "\n" << endl;
 	system("pause");
@@ -55,14 +102,46 @@ void createStack(stack<CellPhone, vector<CellPhone>>& cellphoneInventory)
 	string idNum, phoneNum;
 	int counter = 0;
 
-	while (inFile >> idNum >> phoneNum)
+
+	for (int i = 0; i < FILE_SIZE; i++)
 	{
+		inFile >> idNum >> phoneNum;
+
 		CellPhone cell(idNum, phoneNum);
 
 		cellphoneInventory.push(cell);
 
-		counter++;
 	}
 
 	inFile.close();
+}
+
+void buyPhone(stack <CellPhone, vector<CellPhone>>& cellPhoneInventory)
+{
+	string name;
+	int phonesNum;
+
+	cout << "Please enter in the customer name: ";
+	getline(cin, name);
+	cout << "Please enter in the number of phones to purchase(1 - 6): ";
+	cin >> phonesNum;
+	while (phonesNum < 0 || phonesNum < 6 || phonesNum > (cellPhoneInventory.size() / 2))
+	{
+		if ((cellPhoneInventory.size() / 2) >= 6)
+		{
+			cout << "Error - you can only pruchase 1 - 6 phones. Please reenter!" << endl;
+
+			cout << "\nPlease enter in the number of phones to purchase(1 - 6): ";
+			cin >> phonesNum;
+		}
+		if ((cellPhoneInventory.size() / 2) < 6)
+		{
+			cout << "Error - you can only pruchase 1 - 6 phones. Please reenter!" << endl;
+
+			cout << "\nPlease enter in the number of phones to purchase(1 - 6): ";
+			cin >> phonesNum;
+		}
+
+
+	}
 }
