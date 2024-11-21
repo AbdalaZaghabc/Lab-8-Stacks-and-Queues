@@ -18,7 +18,7 @@
     <ClCompile Include="azaghabo_Lab8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Cellphone.cpp">
+    <ClCompile Include="CellPhone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Customer.cpp">
@@ -26,7 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cellphone.h">
+    <ClInclude Include="CellPhone.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Customer.h">

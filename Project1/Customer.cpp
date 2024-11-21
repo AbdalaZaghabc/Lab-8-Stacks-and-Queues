@@ -6,7 +6,7 @@ using namespace std;
 
 Customer::Customer()
 {
-	customerName = "";
+	customerName = "none";
 	phonesPurchased = 0;
 	cost = 0.0;
 	phoneObj[0] = CellPhone();
@@ -23,6 +23,7 @@ Customer::Customer(string name, int phoneCount, double costNum, CellPhone array[
 		phoneObj[i] = array[i];
 	}
 
+	calculateCost();
 }
 
 //Getter funtions
@@ -41,11 +42,11 @@ double Customer::getCost()
 	return cost;
 }
 
-CellPhone Customer::getPhoneObj()
+CellPhone Customer::getPhoneObj(int index)
 {
-	for (int i = 0; i < 6; i++)
+	if (index > 0 && index < 6)
 	{
-		return phoneObj[i];
+		return phoneObj[index];
 	}
 }
 
@@ -58,7 +59,10 @@ void Customer::setCustomerName(string name)
 
 void Customer::setPhonesPurchased(int num)
 {
-	phonesPurchased = num;
+	if (num >= 1 && num <= 6)
+	{
+		phonesPurchased = num;
+	}
 }
 
 void Customer::setCost(double num)
@@ -76,6 +80,8 @@ void Customer::setPhoneObj(CellPhone array[])
 
 void Customer::calculateCost()
 {
-	double costTaxless = phonesPurchased * PHONE_COST;
-	cost = 
+	double costBeforeTax;
+
+	costBeforeTax = phonesPurchased * PHONE_COST;
+	cost = costBeforeTax + (costBeforeTax * SALES_TAX);
 }

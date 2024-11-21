@@ -3,17 +3,22 @@
 #include<iostream>
 #include<iomanip>
 #include<string>
-#include"Cellphone.h"
+#include"CellPhone.h"
 using namespace std;
 
 
 class Customer
 {
 private:
+
+	static const int MAX_SIZE = 6;
+	const double PHONE_COST = 199.99, SALES_TAX = 0.06;
+	double totalCost = 0;
+
 	string customerName;
 	int phonesPurchased;
 	double cost;
-	CellPhone phoneObj[6];
+	CellPhone phoneObj[MAX_SIZE];
 
 public:
 	Customer();
@@ -24,7 +29,7 @@ public:
 	string getCustomerName();
 	int getPhonesPurchased();
 	double getCost();
-	CellPhone getPhoneObj();
+	CellPhone getPhoneObj(int);
 
 	//Setter Functions
 	void setCustomerName(string);

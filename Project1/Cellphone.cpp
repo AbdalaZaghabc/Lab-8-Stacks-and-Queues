@@ -1,15 +1,15 @@
 #include<iostream>
 #include<iomanip>
 #include<string>
-#include"Cellphone.h"
+#include"CellPhone.h"
 using namespace std;
 
 
 //Constructors
 CellPhone::CellPhone()
 {
-	idNum = "0";
-	phoneNum = "0";
+	idNum = "none";
+	phoneNum = "none";
 }
 
 CellPhone::CellPhone(string idNumber, string phoneNumber)

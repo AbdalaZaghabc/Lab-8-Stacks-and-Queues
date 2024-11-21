@@ -4,15 +4,15 @@
 #include<iostream>
 #include<iomanip>
 #include<string>
-#include"Cellphone.h"
+#include"CellPhone.h"
 using namespace std;
 
 class CellPhone
 {
 private:
 	
-	string idNum;
-	string phoneNum;
+	string idNum = "";
+	string phoneNum = "";
 
 public:
 	CellPhone();

@@ -129,11 +129,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="azaghabo_Lab8.cpp" />
-    <ClCompile Include="Cellphone.cpp" />
+    <ClCompile Include="CellPhone.cpp" />
     <ClCompile Include="Customer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cellphone.h" />
+    <ClInclude Include="CellPhone.h" />
     <ClInclude Include="Customer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
