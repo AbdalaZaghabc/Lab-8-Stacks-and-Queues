@@ -23,7 +23,7 @@ const int MENU_ONE = 1, MENU_TWO = 2, MENU_THREE = 3;
 //Function Prototypes
 void displayTitle();
 void createStack(stack<CellPhone, vector<CellPhone>>&);
-void buyPhone(stack <CellPhone , vector<CellPhone>>&);
+void buyPhone(stack <CellPhone , vector<CellPhone>>&, deque<Customer>&);
 
 //Beginning of the program
 int main()
@@ -116,16 +116,16 @@ void createStack(stack<CellPhone, vector<CellPhone>>& cellphoneInventory)
 	inFile.close();
 }
 
-void buyPhone(stack <CellPhone, vector<CellPhone>>& cellPhoneInventory)
+void buyPhone(stack <CellPhone, vector<CellPhone>>& cellPhoneInventory, deque<Customer>& customerQueue)
 {
-	string name;
+	string name; 
 	int phonesNum;
 
 	cout << "Please enter in the customer name: ";
 	getline(cin, name);
 	cout << "Please enter in the number of phones to purchase(1 - 6): ";
 	cin >> phonesNum;
-	while (phonesNum < 0 || phonesNum < 6 || phonesNum > (cellPhoneInventory.size() / 2))
+	while (phonesNum < 1 || phonesNum < 6 || phonesNum > (cellPhoneInventory.size() / 2))
 	{
 		if ((cellPhoneInventory.size() / 2) >= 6)
 		{
@@ -136,12 +136,22 @@ void buyPhone(stack <CellPhone, vector<CellPhone>>& cellPhoneInventory)
 		}
 		if ((cellPhoneInventory.size() / 2) < 6)
 		{
-			cout << "Error - you can only pruchase 1 - 6 phones. Please reenter!" << endl;
+			cout << "Error - there are not enought phones in storage. Please reenter!" << endl;
 
 			cout << "\nPlease enter in the number of phones to purchase(1 - 6): ";
 			cin >> phonesNum;
 		}
-
-
 	}
+	vector<CellPhone> phonesPurchased;
+	for (int i = 0; i < phonesNum; i++)
+	{
+		CellPhone phone = cellPhoneInventory.top();
+		cellPhoneInventory.pop();
+		phonesPurchased.push_back(phone);
+	}
+
+	Customer customer(name, phonesPurchased);
+
+	customerQueue.push_back(customer);
+
 }
