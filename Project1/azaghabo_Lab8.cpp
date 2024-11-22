@@ -144,13 +144,13 @@ void buyPhone(stack <CellPhone, vector<CellPhone>>& cellPhoneInventory, deque<Cu
 	//If the user inputs less than 1, more than 6, or more than the inventory at the time, it will be an error.
 	while (phonesNum < 1 || phonesNum > 6 || phonesNum > cellPhoneInventory.size())
 	{
-		if (phonesNum > cellPhoneInventory.size())//If the user inputed more than the current inventory number
+		if (phonesNum < 1 || phonesNum > 6) // Error message if wrong input
 		{
-			cout << "Error - there are not enought phones in storage. Please reenter!" << endl;
+			cout << "Error - you can only purchase 1 - 6 phones. Please reenter!" << endl;
 		}
-		else if (phonesNum > 6)//If the user inputs a number higher than 6, or less than 1.
+		else if (phonesNum > cellPhoneInventory.size()) // Check if inventory has enough objects
 		{
-			cout << "Error - you can only pruchase 1 - 6 phones. Please reenter!" << endl;
+			cout << "Error - there are not enough phones in storage. Please reenter!" << endl;
 		}
 
 		cout << "\nPlease enter in the number of phones to purchase(1 - 6): ";
