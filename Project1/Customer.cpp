@@ -4,6 +4,7 @@
 #include"Customer.h"
 using namespace std;
 
+//Constructors to initialize variables
 Customer::Customer()
 {
 	customerName = "none";
@@ -11,7 +12,6 @@ Customer::Customer()
 	cost = 0.0;
 	phoneObj[0] = CellPhone();
 }
-
 Customer::Customer(string name, int phoneCount, double costNum, CellPhone array[])
 {
 	customerName = name;
@@ -44,7 +44,7 @@ double Customer::getCost()
 
 CellPhone Customer::getPhoneObj(int index)
 {
-	if (index > 0 && index < 6)
+	if (index >= 0 && index < phonesPurchased)		//Evaluate if the index is valid for accessing the phone object array in the customer class.
 	{
 		return phoneObj[index];
 	}
@@ -78,6 +78,7 @@ void Customer::setPhoneObj(CellPhone array[])
 	}
 }
 
+//Calculates the cost per user.
 void Customer::calculateCost()
 {
 	double costBeforeTax;

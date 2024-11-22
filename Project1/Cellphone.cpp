@@ -5,13 +5,12 @@
 using namespace std;
 
 
-//Constructors
+//Constructors to initialize variables
 CellPhone::CellPhone()
 {
 	idNum = "none";
 	phoneNum = "none";
 }
-
 CellPhone::CellPhone(string idNumber, string phoneNumber)
 {
 	idNum = idNumber;

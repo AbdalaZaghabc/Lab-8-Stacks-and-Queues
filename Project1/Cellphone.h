@@ -15,6 +15,7 @@ private:
 	string phoneNum = "";
 
 public:
+	//Cellphone Constructors
 	CellPhone();
 	CellPhone(string idNum, string phoneNum);
 	~CellPhone() {}
@@ -30,4 +31,3 @@ public:
 
 #endif // !CELLPHONE_H
 
-#pragma once

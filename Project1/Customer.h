@@ -11,6 +11,7 @@ class Customer
 {
 private:
 
+	//constants to calculate costs
 	static const int MAX_SIZE = 6;
 	const double PHONE_COST = 199.99, SALES_TAX = 0.06;
 	double totalCost = 0;
@@ -21,6 +22,7 @@ private:
 	CellPhone phoneObj[MAX_SIZE];
 
 public:
+	//Customer Constructors
 	Customer();
 	Customer(string, int, double, CellPhone array[]);
 	~Customer() {}
@@ -37,6 +39,7 @@ public:
 	void setCost(double);
 	void setPhoneObj(CellPhone[]);
 
+	//Other function to calculate the cost.
 	void calculateCost();
 };
 
